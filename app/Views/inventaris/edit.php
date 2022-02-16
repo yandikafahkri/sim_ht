@@ -9,7 +9,7 @@
     <section class="section">
         <div class="section-header">
             <div class="section-header-back">
-                <a href="/inventaris/<?= $inventaris->alias_ht ?>" class="btn btn-outline-primary"><i class="fas fa-arrow-left"></i>  Kembali</a>
+                <a href="/inventaris/<?= $inventaris->id_ht ?>" class="btn btn-outline-primary"><i class="fas fa-arrow-left"></i>  Kembali</a>
             </div>
                 <img alt="image" src="<?=base_url()?>/template/assets/img/ht.png" class="" width="40px">
                 <h1>Edit Data Inventaris Handy Talkie</h1>
@@ -17,7 +17,7 @@
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item"><a href="<?=site_url('/')?>">Dashboard</a></div>
                     <div class="breadcrumb-item"><a href="<?=site_url('inventaris')?>">Inventaris HT</a></div>
-                    <div class="breadcrumb-item"><a href="/inventaris/<?= $inventaris->alias_ht ?>">Detail</a></div>
+                    <div class="breadcrumb-item"><a href="/inventaris/<?= $inventaris->id_ht ?>">Detail <?= $inventaris->alias_ht ?></a></div>
                     <div class="breadcrumb-item active"><a href="<?=site_url('inventaris/edit')?>">Edit Data</a></div>
                 </div>
         </div>

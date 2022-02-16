@@ -1,5 +1,5 @@
 <li class="menu-header text-center">Main Menu</li>
-<li class="nav-item">
+<li class="nav-item  text-dark">
         <a href="<?=site_url('inventaris')?>" class="nav-link"><i class="fas fa-list"></i><span>Inventaris HT</span></a>
         <a href="#" class="nav-link"><i class="fas fa-eye"></i> <span>Maintenance HT</span></a>
 

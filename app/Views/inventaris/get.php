@@ -20,7 +20,7 @@
         </div>
 
 
-        <div class="section-body">
+        <div class="section-body text-dark">
 
         <div class="card">
                 <div class="card-header">
