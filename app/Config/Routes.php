@@ -33,6 +33,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('login', 'Auth::login');
 
+// Inventaris
 $routes->get('/', 'Home::index');
 $routes->get('inventaris', 'Inventaris::index');
 $routes->get('inventaris/add', 'Inventaris::create');
@@ -44,6 +45,25 @@ $routes->post('inventaris', 'Inventaris::addproses');
 $routes->get('inventaris/edit/(:any)', 'Inventaris::edit/$1');
 $routes->put('inventaris/(:any)', 'Inventaris::editproses/$1');
 $routes->delete('inventaris/(:segment)', 'Inventaris::delete/$1');
+
+// User
+$routes->get('users', 'User::index');
+$routes->get('users/add', 'User::create');
+$routes->get('users/(:segment)', 'User::detail/$1');
+$routes->post('users', 'User::addproses');
+$routes->get('users/edit/(:any)', 'User::edit/$1');
+$routes->put('users/(:any)', 'User::editproses/$1');
+$routes->delete('users/(:segment)', 'User::delete/$1');
+
+// Maintenance
+$routes->get('maintenance', 'Maintenance::index');
+$routes->get('maintenance/new', 'Maintenance::new');
+$routes->get('maintenance/(:segment)', 'Maintenance::detail/$1');
+$routes->post('maintenance', 'Maintenance::create');
+$routes->get('users/edit/(:any)', 'Maintenance::edit/$1');
+$routes->put('maintenance/(:any)', 'Maintenance::editproses/$1');
+$routes->delete('maintenance/(:segment)', 'Maintenance::delete/$1');
+
 
 /*
  * --------------------------------------------------------------------

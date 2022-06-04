@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use CodeItNow\BarcodeBundle\Utils\QrCode;
 
+
 class Inventaris extends BaseController
 {
     public function index()

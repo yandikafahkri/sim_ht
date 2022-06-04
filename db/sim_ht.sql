@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Feb 2022 pada 02.44
+-- Waktu pembuatan: 22 Bulan Mei 2022 pada 08.18
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.0.13
 
@@ -50,6 +50,27 @@ INSERT INTO `inventaris` (`id_ht`, `dep_ht`, `lokasi_ht`, `alias_ht`, `tipe_ht`,
 (7, 'Operasional', 'Container Crane (CC 09) RIG', 'RIG-CC09', 'M8628', '511TRFA611', 'Operator CC', 'Normal 70%'),
 (8, 'Operasional', 'RUBBER TYRED GANTRY SUMITOMO (RTG01) RIG', 'HT-RTG01', 'M8628', '511TRFA549', 'Operator RTG', 'Normal 70%');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `users`
+--
+
+CREATE TABLE `users` (
+  `id_user` bigint(20) NOT NULL,
+  `name_user` varchar(30) NOT NULL,
+  `email_user` varchar(100) NOT NULL,
+  `password_user` varchar(60) NOT NULL,
+  `info_user` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `users`
+--
+
+INSERT INTO `users` (`id_user`, `name_user`, `email_user`, `password_user`, `info_user`) VALUES
+(1, 'administrator', 'yandika.ismananda@gmail.com', '$2a$12$P836Ta5RRJdnHscUDoG4aeFCaqP6wG1zI7Iow.7T/gsjX/uzWV0yW', '');
+
 --
 -- Indexes for dumped tables
 --
@@ -59,6 +80,12 @@ INSERT INTO `inventaris` (`id_ht`, `dep_ht`, `lokasi_ht`, `alias_ht`, `tipe_ht`,
 --
 ALTER TABLE `inventaris`
   ADD PRIMARY KEY (`id_ht`);
+
+--
+-- Indeks untuk tabel `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang

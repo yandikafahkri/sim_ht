@@ -196,11 +196,16 @@
                                     ;
                                     echo '<img src="data:'.$qrCode->getContentType().';base64,'.$qrCode->generate().'" />';
                                     ?>
+
+                                    
                                 </div>
                                 <div class="card-footer text-center">
-                                    <!-- tombol qr -->
+                                    <!-- tombol print -->
                                     <a href="<?=site_url('inventaris/genqr/'.$inventaris->alias_ht) ?>" target="_blank"
-                                    class="btn btn-sm btn-outline-dark"><i class="fas fa-print"></i> Print QR-Code</a>
+                                    class="btn btn-sm btn-outline-dark"><i class="fas fa-print"></i> Print</a>
+                                    <vr>
+                                    <a href="<?=site_url('inventaris/downqr/'.$inventaris->alias_ht) ?>" target="_blank"
+                                    class="btn btn-sm btn-outline-dark"><i class="fas fa-download"></i> Download</a>
                                 </div>
                         </div>
                     </div>
