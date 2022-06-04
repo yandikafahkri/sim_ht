@@ -39,9 +39,13 @@ class Inventaris extends BaseController
         $data=$this->request->getPost();
         $this->db->table('inventaris')->insert($data);
 
-        if($this->db->affectedRows() > 0) {
-            return redirect()->to(site_url('inventaris'))->with('success', 'Data berhasil ditambahkan!');
-        }
+        // if($this->db->affectedRows() > 0) {
+        //     return redirect()->to(site_url('inventaris'))->with('success', 'Data berhasil ditambahkan!');
+        // }
+
+        session()->setFlashdata('pesan', 'Data berhasil ditambahkan!');
+        return redirect()->to(site_url('inventaris'));
+
     }
 
     public function edit($id = null)

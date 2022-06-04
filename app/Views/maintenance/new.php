@@ -65,6 +65,26 @@
                                 </div>
                             </tr>
 
+                            <tr style="height: 50px;">
+                                <div class="form-group">
+                                    <td width="200">
+                                    Kondisi Perangkat
+                                    </td>
+
+                                    <td>:</td>
+
+                                    <td width="1000">
+                                    <select class="form-control" name="kondisi_maint" placeholder="Pilih Nama Alias" required>
+                                        <option value="Baik 100%">Baik 100%</option>
+                                        <option value="Baik 75%">Baik 75%</option>
+                                        <option value="Layak Pakai 50%">Layak Pakai 50%</option>
+                                        <option value="Rusak">Rusak</option>
+                                    </select>
+                                    </td>
+
+                                </div>
+                            </tr>
+
                             
                             <tr style="height: 50px;">
                                 <div class="form-group">

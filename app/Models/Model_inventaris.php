@@ -19,7 +19,7 @@ class Model_inventaris extends Model
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
 
-    function getAll(){
+    function getAll() {
          $builder = $this->db->table('inventaris');
          $builder->join('maintenance', 'maintenance.id_ht = inventaris.id_ht');
          $query = $builder->get();

@@ -10,7 +10,7 @@ class ModelMaint extends Model
     protected $primaryKey       = 'id_maint';
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
-    protected $allowedFields    = ['alias_ht','tanggal_maint','foto_maint'];
+    protected $allowedFields    = ['alias_ht','tanggal_maint','kondisi_maint','foto_maint'];
 
     // Dates
     protected $useTimestamps = false;
@@ -25,24 +25,4 @@ class ModelMaint extends Model
          $query = $builder->get();
          return $query->getResult();
     }
-
-    public function getFoto()
-    {
-        //ambil gambar
-        $foto = $this->request->getFile('foto_maint');
-
-        //pindahkan gambar 
-        $foto->move('template/assets/img');
-
-        //ambil nama file
-        $namaFoto = $foto->getName();    
-    }
-
-    public function insertData()
-    {
-        $builder = $this->db->table('maintenance');
-        $query = $builder->insert();
-    }
-
-
 }

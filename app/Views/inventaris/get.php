@@ -10,9 +10,13 @@
         <div class="section-header">
         <img alt="image" src="<?=base_url()?>/template/assets/img/ht.png" class="" width="40px">
         <h1>Inventaris Handy Talkie</h1>
+        
+        <?php if(userLogin()->name_user=='administrator') : ?>
         <div class="section-header-button">
             <a href="<?=site_url('inventaris/add')?>" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i>  Tambah Data</a>
         </div>
+        <?php endif; ?>
+
         <div class="section-header-breadcrumb">
               <div class="breadcrumb-item"><a href="<?=site_url('/')?>">Dashboard</a></div>
               <div class="breadcrumb-item active"><a href="<?=site_url('inventaris')?>">Inventaris HT</a></div>
@@ -21,6 +25,12 @@
 
 
         <div class="section-body text-dark">
+
+        <?php if(session()->getFlashdata('pesan')) : ?>
+                <div class="alert alert-success mb-3" role="alert">
+                <?= session()->getFlashdata('pesan'); ?>
+                </div>
+        <?php endif; ?>
 
         <div class="card">
                 <div class="card-header">

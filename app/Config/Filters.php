@@ -73,6 +73,10 @@ class Filters extends BaseConfig
                 'home',
                 'inventaris',
                 'inventaris/*',
+                'maintenance',
+                'maintenance/*',
+                'user',
+                'user/*'
             ]         
         ]
     ];

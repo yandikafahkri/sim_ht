@@ -22,6 +22,12 @@
 
         <div class="section-body text-dark">
 
+        <?php if(session()->getFlashdata('pesan')) : ?>
+                <div class="alert alert-success mb-3" role="alert">
+                <?= session()->getFlashdata('pesan'); ?>
+                </div>
+        <?php endif; ?>
+
         <div class="card">
                 <div class="card-header">
                 <h4>List Maintenance Handy Talkie</h4>
@@ -39,6 +45,8 @@
                                 <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" 
                                  aria-label="Departement: activate to sort column descending">Tanggal Maintenance</th>
                                 <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" 
+                                 aria-label="Departement: activate to sort column descending">Kondisi</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" 
                                 aria-label="Lokasi: activate to sort column descending">Foto Maintenance</th>
                                 <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" 
                                 aria-label="Action: activate to sort column descending">Detail</th>
@@ -50,8 +58,9 @@
                                 <td tabindex="0" class="sorting_1"><?=$key+1; ?></td>
                                 <td tabindex="0" class="sorting_1"><?=$value->alias_ht?></td>
                                 <td tabindex="0" class="sorting_1"><?=$value->tanggal_maint?></td>
-                                <td tabindex="0" class="sorting_1">
-                                    <img src="<?=base_url('assets/img/'.$value->foto_maint);?>" width="100">
+                                <td tabindex="0" class="sorting_1"><?=$value->kondisi_maint?></td>
+                                <td tabindex="0" class="sorting_1 text-center">
+                                    <img src="/img/<?=$value->foto_maint?>" width="100">
                                 </td>
                                 <td tabindex="0" class="text-center sorting_1" style="widht:10%">
                                     <!-- tombol detail -->

@@ -30,7 +30,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-danger">
-                  <i class="far fa-file"></i>
+                  <i class="fas fa-calendar-check"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
@@ -42,21 +42,25 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="card card-statistic-1">
-                <div class="card-icon bg-warning">
-                <i class="fas fa-users-cog"></i>
-                </div>
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <h4>User Terdaftar</h4>
+
+            <?php if(userLogin()->name_user=='administrator') : ?>       
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                  <div class="card card-statistic-1">
+                    <div class="card-icon bg-warning">
+                    <i class="fas fa-users-cog"></i>
+                    </div>
+                    <div class="card-wrap">
+                      <div class="card-header">
+                        <h4>User Terdaftar</h4>
+                      </div>
+                      <div class="card-body">
+                      <?=$jml_user?>
+                      </div>
+                    </div>
                   </div>
-                  <div class="card-body">
-                  <?=$jml_user?>
-                  </div>
                 </div>
-              </div>
-            </div>
+            <?php endif; ?>
+
           </div>
         <div class="section-body text-dark">
       <div class="row">

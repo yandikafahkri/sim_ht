@@ -148,18 +148,22 @@
                                                         <?= $inventaris->ket_ht ?>
                                                     </td>
 
-                                                    <td colspan=3>
-                                                        <!-- tombol edit -->
-                                                        <a href="<?=site_url('inventaris/edit/'.$inventaris->id_ht) ?>"
-                                                        class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i> Edit Data</a>
-                                                        <!-- tombol delete -->
-                                                        <form action="<?=site_url('inventaris/'.$inventaris->id_ht)?>" method="post" onsubmit="return confirm('Data akan dihapus?')">
-                                                            <?= csrf_field() ?>   
-                                                            <input type="hidden" name="_method" value="DELETE" class="d-inline">
-                                                            <button class="btn btn-sm text-danger btn-outline-danger" onclick="return confirm('Data akan dihapus?')">
-                                                            <i class="fas fa-trash"></i> Hapus Data</button>
-                                                        </form> 
-                                                    </td>
+
+                                                    <?php if(userLogin()->name_user=='administrator') : ?>        
+                                                        <td colspan=3>
+                                                            <!-- tombol edit -->
+                                                            <a href="<?=site_url('inventaris/edit/'.$inventaris->id_ht) ?>"
+                                                            class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i> Edit Data</a>
+                                                            <!-- tombol delete -->
+                                                            <form action="<?=site_url('inventaris/'.$inventaris->id_ht)?>" method="post" onsubmit="return confirm('Data akan dihapus?')">
+                                                                <?= csrf_field() ?>   
+                                                                <input type="hidden" name="_method" value="DELETE" class="d-inline">
+                                                                <button class="btn btn-sm text-danger btn-outline-danger" onclick="return confirm('Data akan dihapus?')">
+                                                                <i class="fas fa-trash"></i> Hapus Data</button>
+                                                            </form> 
+                                                        </td>
+                                                    <?php endif; ?>
+
 
                                                 </div>
                                             </tr>
