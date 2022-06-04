@@ -25,15 +25,26 @@
                 <img alt="image" src="<?=base_url()?>/template/assets/img/MJCpngHT.png" class="p-1 m-2" width="150px">
                 <p>
             </div>
+            
             <div class="text-center text-dark">
                     <h6>Sistem Informasi Maintenance HT</h6> 
+              <?php if(session()->getFlashdata('error')) : ?>
+              <div class="alert alert-danger alert-dismissible show fade">
+                  <div class="alert-body">
+                      <button class="close" data-dismiss="alert">x</button>
+                      <b>Error !</b>
+                      <?=session()->getFlashdata('error')?>
+                  </div>
+              </div>
+              <?php endif; ?> 
             </div>
 
             <div class="card card-info">
               <div class="card-header"><h4>Silahkan Login</h4></div>
 
-              <div class="card-body">
-                <form method="POST" action="#" class="needs-validation" novalidate="">
+             <div class="card-body">
+                <form method="POST" action="<?=site_url('auth/loginProcess')?>" class="needs-validation" novalidate="">
+                <?= csrf_field() ?>   
                   <div class="form-group">
                     <input id="email" type="email" class="form-control" name="email" tabindex="1" placeholder="Email" required autofocus>
                     <div class="invalid-feedback">
