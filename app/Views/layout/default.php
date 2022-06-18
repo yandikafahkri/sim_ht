@@ -13,6 +13,12 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?=base_url()?>/template/assets/css/style.css">
   <link rel="stylesheet" href="<?=base_url()?>/template/assets/css/components.css">
+
+  <!-- DataTable -->
+  <link rel="stylesheet" href="<?=base_url()?>/template/assets/dataTables/datatables.min.css">
+
+  <!-- sweetalert2 -->
+  <link rel="stylesheet" href="<?=base_url()?>/template/sweetalert2/dist/sweetalert2.min.css">
 </head>
 
 <body>
@@ -33,16 +39,43 @@
         </form>
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <img alt="image" src="<?=base_url()?>/template/assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-            <div class="d-sm-none d-lg-inline-block">Hi, <?= userLogin()->name_user?> </div></a>
+            <i class="fa fa-user"></i>            
+            <div class="d-sm-none d-lg-inline-block"> <?= userLogin()->name_user?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              <a href="features-profile.html" class="dropdown-item has-icon">
-                <i class="fas fa-user-cog"></i> Setting Account
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="<?=site_url('auth/logout')?>" class="dropdown-item has-icon text-danger">
-                <i class="fas fa-sign-out-alt"></i> Logout
-              </a>
+
+
+                <?php if(userLogin()->info_user!='Administrator') : ?>        
+                  <!-- tombol edit -->
+                  <button  class="dropdown-item has-icon" 
+                    onclick="window.location.href='<?=site_url('user/edit/'.userLogin()->id_user)?>';">
+                    <i class="fas fa-user-cog"></i> Setting Account</a>
+                  </button>
+                <?php endif ; ?>
+
+                <div class="dropdown-divider"></div>
+                  <button class="dropdown-item has-icon text-danger" 
+                          onclick="Swal.fire({
+                          title: 'Anda akan keluar sistem?',
+                          showDenyButton: false,
+                          showCancelButton: true,
+                          confirmButtonText: 'Logout',
+                          denyButtonText: `Cancel`,
+                        }).then((result) => {
+                          if (result.isConfirmed) {
+                                window.location.href='<?=site_url('auth/logout')?>';
+                              } else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                              }
+                        })">
+                    <i class="fas fa-sign-out-alt"></i> Logout</a>
+              </button>
+
+                <div class="dropdown-divider"></div>
+
+                <div class="has-icon text-muted text-center">
+                    You're : <?= userLogin()->info_user?>
+                </div>
+
             </div>
           </li>
         </ul>
@@ -61,7 +94,7 @@
             <ul class="sidebar-menu">
                 <?=$this->include('layout/menu.php') ?>
             </ul>
-
+            
             <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
               <a href="#" class="btn btn-primary btn-lg btn-block btn-icon-split">
                 <i class="fa fa-question-circle"></i> CV Mitra Jaya Computer
@@ -93,34 +126,24 @@
   <script src="<?=base_url()?>/template/node_modules/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script>
   <script src="<?=base_url()?>/template/node_modules/moment/min/moment.min.js"></script>
   <script src="<?=base_url()?>/template/assets/js/stisla.js"></script>
-  <script src="<?=base_url()?>/template/node_modules/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="<?=base_url()?>/template/sweetalert2/dist/sweetalert2.min.js"></script>
 
   <!-- JS Libraies -->
 
   <!-- Template JS File -->
   <script src="<?=base_url()?>/template/assets/js/scripts.js"></script>
   <script src="<?=base_url()?>/template/assets/js/custom.js"></script>
+  
+  <!-- DataTable -->
+  <script src="<?=base_url()?>/template/assets/dataTables/datatables.min.js"></script>
 
-  <!-- Page Specific JS File -->
+    <!-- DataTables -->
 
-      <!-- page script -->
-    <!-- <script>
-      $(function () {
-        $("#example1").DataTable({
-          "responsive": true,
-          "autoWidth": false,
-        });
-        $('#example2').DataTable({
-          "paging": true,
-          "lengthChange": false,
-          "searching": false,
-          "ordering": true,
-          "info": true,
-          "autoWidth": false,
-          "responsive": true,
-        });
-      });
-    </script> -->
+  <script>
+    $(document).ready( function () {
+        $('#datatables').DataTable();
+    } );
+  </script>
 
 
 </body>

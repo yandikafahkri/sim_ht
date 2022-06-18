@@ -35,4 +35,9 @@ class Model_home extends Model
     {
         return $this->db->table('maintenance')->get()->getResult();
     }
+
+    public function get_usrID()
+    {
+        return $this->db->table('users')->where('id_user', session('id_user'))->get()->getRow();    
+    }
 }

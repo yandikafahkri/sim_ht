@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Bulan Mei 2022 pada 08.18
+-- Waktu pembuatan: 16 Jun 2022 pada 11.34
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.0.13
 
@@ -48,7 +48,36 @@ INSERT INTO `inventaris` (`id_ht`, `dep_ht`, `lokasi_ht`, `alias_ht`, `tipe_ht`,
 (4, 'Operasional', 'Container Crane (CC 06) RIG', 'RIG-CC06', 'M8628', '511TRFA620', 'Operator CC', 'Normal 100%'),
 (5, 'Operasional', 'Container Crane (CC 07) RIG', 'RIG-CC07', 'M8628', '511TRFA660', 'Operator CC', 'Normal 70%'),
 (7, 'Operasional', 'Container Crane (CC 09) RIG', 'RIG-CC09', 'M8628', '511TRFA611', 'Operator CC', 'Normal 70%'),
-(8, 'Operasional', 'RUBBER TYRED GANTRY SUMITOMO (RTG01) RIG', 'HT-RTG01', 'M8628', '511TRFA549', 'Operator RTG', 'Normal 70%');
+(8, 'Operasional', 'RUBBER TYRED GANTRY SUMITOMO (RTG01) RIG', 'HT-RTG01', 'M8628', '511TRFA549', 'Operator RTG', 'Normal 70%'),
+(10, 'Operasional', 'RUBBER TYRED GANTRY SUMITOMO (RTG02) RIG', 'HT-RTG02', 'M8628', '511TRFA495', 'Operator RTG', 'Normal 100%'),
+(11, 'Operasional', 'RUBBER TYRED GANTRY SUMITOMO (RTG03) RIG', 'HT-RTG03', 'M8628', '511TRFA493', 'Operator RTG', 'Normal 100%'),
+(12, 'Operasional', 'RUBBER TYRED GANTRY SUMITOMO (RTG04) RIG', 'HT-RTG04', 'M8628', '511TRFA595', 'Operator RTG', 'Normal 70%');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `maintenance`
+--
+
+CREATE TABLE `maintenance` (
+  `id_maint` bigint(10) UNSIGNED NOT NULL,
+  `alias_ht` varchar(30) NOT NULL,
+  `tanggal_maint` date NOT NULL,
+  `kondisi_maint` varchar(30) NOT NULL,
+  `foto_maint1` varchar(255) DEFAULT NULL,
+  `foto_maint2` varchar(255) DEFAULT NULL,
+  `foto_maint3` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp(),
+  `deleted_at` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `maintenance`
+--
+
+INSERT INTO `maintenance` (`id_maint`, `alias_ht`, `tanggal_maint`, `kondisi_maint`, `foto_maint1`, `foto_maint2`, `foto_maint3`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'RIG-CC04', '2022-06-08', 'Baik 100%', 'TimePhoto_20210407_125537.jpg', 'TimePhoto_20210407_124925.jpg', 'TimePhoto_20210407_124437.jpg', '2022-06-16 15:38:37', '2022-06-16 15:38:37', '2022-06-16 15:38:37');
 
 -- --------------------------------------------------------
 
@@ -69,7 +98,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `name_user`, `email_user`, `password_user`, `info_user`) VALUES
-(1, 'administrator', 'yandika.ismananda@gmail.com', '$2a$12$P836Ta5RRJdnHscUDoG4aeFCaqP6wG1zI7Iow.7T/gsjX/uzWV0yW', '');
+(1, 'Yandika Fahkri Ismanananda', 'yandika.ismananda@gmail.com', '$2a$12$P836Ta5RRJdnHscUDoG4aeFCaqP6wG1zI7Iow.7T/gsjX/uzWV0yW', 'Administrator'),
+(2, 'Teknisi', 'teknisi@gmail.com', '$2y$10$bQC.Jz0FEdJWaN7R26E5Y.2Kb.Jfs/gDv/Uau2cifgefxBr2eloRS', 'Teknisi'),
+(3, 'Agung Sulistyo', 'agung@gmail.com', '$2y$10$CbIgQKrBdz5Fm3WkuNBKKOy3qC8NTOEK1Cj8O27pvy060U0XQ5lCi', 'Admin Perusahaan');
 
 --
 -- Indexes for dumped tables
@@ -80,6 +111,12 @@ INSERT INTO `users` (`id_user`, `name_user`, `email_user`, `password_user`, `inf
 --
 ALTER TABLE `inventaris`
   ADD PRIMARY KEY (`id_ht`);
+
+--
+-- Indeks untuk tabel `maintenance`
+--
+ALTER TABLE `maintenance`
+  ADD PRIMARY KEY (`id_maint`);
 
 --
 -- Indeks untuk tabel `users`
@@ -95,7 +132,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `inventaris`
 --
 ALTER TABLE `inventaris`
-  MODIFY `id_ht` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_ht` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT untuk tabel `maintenance`
+--
+ALTER TABLE `maintenance`
+  MODIFY `id_maint` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `users`
+--
+ALTER TABLE `users`
+  MODIFY `id_user` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

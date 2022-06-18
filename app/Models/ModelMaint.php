@@ -10,7 +10,7 @@ class ModelMaint extends Model
     protected $primaryKey       = 'id_maint';
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
-    protected $allowedFields    = ['alias_ht','tanggal_maint','kondisi_maint','foto_maint'];
+    protected $allowedFields    = ['alias_ht','tanggal_maint','kondisi_maint','foto_maint1','foto_maint2','foto_maint3'];
 
     // Dates
     protected $useTimestamps = false;
@@ -21,8 +21,12 @@ class ModelMaint extends Model
 
     function getAll(){
          $builder = $this->db->table('maintenance');
-        //  $builder->join('inventaris', 'inventaris.id_ht = maintenance.id_ht');
          $query = $builder->get();
          return $query->getResult();
+    }
+
+    public function get_inv($id)
+    {
+        return $this->db->table('inventaris')->get($id)->getResult($id);
     }
 }

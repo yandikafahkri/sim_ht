@@ -2,6 +2,11 @@
 
 namespace App\Controllers;
 use CodeItNow\BarcodeBundle\Utils\QrCode;
+use CodeIgniter\RESTful\ResourceController;
+
+use App\Models\Model_inventaris;
+use App\Models\ModelMaint;
+use App\Models\Model_user;
 
 
 class Inventaris extends BaseController
@@ -21,7 +26,7 @@ class Inventaris extends BaseController
     public function detail($id)
     {
         if($id != null) {
-            $query = $this->db->table('inventaris')->getWhere(['id_ht' => $id]);
+            $query = $this->db->table('inventaris')->getWhere(['alias_ht' => $id]);
             if ($query->resultID->num_rows > 0) {
                 $data['inventaris'] = $query->getRow();
                 return view('inventaris/detail', $data);
@@ -51,7 +56,7 @@ class Inventaris extends BaseController
     public function edit($id = null)
     {
         if($id != null) {
-            $query = $this->db->table('inventaris')->getWhere(['id_ht' => $id]);
+            $query = $this->db->table('inventaris')->getWhere(['alias_ht' => $id]);
             if ($query->resultID->num_rows > 0) {
                 $data['inventaris'] = $query->getRow();
                 return view('inventaris/edit', $data);
@@ -63,13 +68,15 @@ class Inventaris extends BaseController
         }
     }
 
-    public function editproses($id) {
+    public function editproses($alias_ht) {
         $data=$this->request->getPost();
         unset($data ['_method']);
 
-        $this->db->table('inventaris')->where(['id_ht' => $id])->update($data);
-        return redirect()->to(site_url('inventaris/detail/'.$id))->with('success', 'Data berhasil diperbarui!');
+        $this->db->table('inventaris')->where(['alias_ht' => $alias_ht])->update($data);
 
+        session()->setFlashdata('pesan', 'Data berhasil diperbarui!');
+
+        return redirect()->to(site_url('inventaris/'.$alias_ht));           
     }
 
     public function delete($id) {
@@ -79,37 +86,26 @@ class Inventaris extends BaseController
 
     }
 
-    public function qrcode() {
-
-        $writer = new PngWriter(PngWriter::class);
-
-        // Create QR code
-        // $qrCode = QrCode::create('bjkbjbjkb');
-        $qrCode = new QrCode(123);
-                
-        $result = $writer->write($qrCode);
-        
-        header('Content-Type: '.$result->getMimeType(PngWriter::class));
-        echo $result->writeString();
-
+    public function downqr($id) 
+    {
+        if($id != null) {
+            $query = $this->db->table('inventaris')->getWhere(['alias_ht' => $id]);
+            if ($query->resultID->num_rows > 0) {
+                $data['inventaris'] = $query->getRow();
+                return view('inventaris/downqr', $data);
+        } else {
+                throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+            }
+        } else {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+        // return $response->download('', null);
 
     }
 
-    public function qr() 
+    public function qr($id) 
     {
-        $qrCode = new QrCode();
-        $qrCode
-            ->setText('Yandika')
-            ->setSize(300)
-            ->setPadding(10)
-            ->setErrorCorrection('high')
-            ->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0))
-            ->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0))
-            ->setLabel('Yandika')
-            ->setLabelFontSize(16)
-            ->setImageType(QrCode::IMAGE_TYPE_PNG)
-        ;
-        echo '<img src="data:'.$qrCode->getContentType().';base64,'.$qrCode->generate().'" />';
+        //
     }
  
 }

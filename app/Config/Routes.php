@@ -48,21 +48,22 @@ $routes->delete('inventaris/(:segment)', 'Inventaris::delete/$1');
 
 // User
 $routes->get('users', 'User::index');
-$routes->get('users/add', 'User::create');
-$routes->get('users/(:segment)', 'User::detail/$1');
-$routes->post('users', 'User::addproses');
-$routes->get('users/edit/(:any)', 'User::edit/$1');
-$routes->put('users/(:any)', 'User::editproses/$1');
+$routes->get('users/new', 'User::new');
+$routes->post('users', 'User::create');
 $routes->delete('users/(:segment)', 'User::delete/$1');
+$routes->put('users/(:any)', 'User::editproses/$1');
+
+$routes->get('users/(:segment)', 'User::detail/$1');
+$routes->get('users/edit/(:any)', 'User::edit/$1');
 
 // Maintenance
 $routes->get('maintenance', 'Maintenance::index');
 $routes->get('maintenance/new', 'Maintenance::new');
-$routes->get('maintenance/(:segment)', 'Maintenance::detail/$1');
 $routes->post('maintenance', 'Maintenance::create');
-$routes->get('users/edit/(:any)', 'Maintenance::edit/$1');
-$routes->put('maintenance/(:any)', 'Maintenance::editproses/$1');
 $routes->delete('maintenance/(:segment)', 'Maintenance::delete/$1');
+$routes->get('maintenance/edit/(:segment)', 'Maintenance::edit/$1');
+$routes->put('maintenance/(:any)', 'Maintenance::editproses/$1');
+$routes->get('maintenance/(:segment)', 'Maintenance::cetak/$1');
 
 
 /*

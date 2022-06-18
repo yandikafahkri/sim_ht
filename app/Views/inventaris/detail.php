@@ -22,16 +22,6 @@
                     <div class="breadcrumb-item"><a href="/inventaris/<?= $inventaris->id_ht ?>">Detail <?= $inventaris->alias_ht ?></a></div>
                 </div>
         </div>
-
-        <?php if(session()->getFlashdata('success')) : ?>
-        <div class="alert alert-success alert-dismissible show fade">
-            <div class="alert-body">
-                <button class="close" data-dismiss="alert">x</button>
-                <b>Success !</b>
-                <?=session()->getFlashdata('success')?>
-            </div>
-        </div>
-        <?php endif; ?> 
         
         <?php if(session()->getFlashdata('error')) : ?>
         <div class="alert alert-danger alert-dismissible show fade">
@@ -44,6 +34,11 @@
         <?php endif; ?> 
 
         <div class="section-body text-dark">
+
+        <!-- Sweet Alert -->
+        <div class="swal" data-swal="<?= session()->getFlashdata('pesan'); ?>"> </div>
+
+
             <div class="row">
                     <div class="col-lg-9 col-md-6 col-12">
                         <div class="card">
@@ -149,10 +144,10 @@
                                                     </td>
 
 
-                                                    <?php if(userLogin()->name_user=='administrator') : ?>        
+                                                    <?php if(userLogin()->info_user=='Administrator') : ?>        
                                                         <td colspan=3>
                                                             <!-- tombol edit -->
-                                                            <a href="<?=site_url('inventaris/edit/'.$inventaris->id_ht) ?>"
+                                                            <a href="<?=site_url('inventaris/edit/'.$inventaris->alias_ht) ?>"
                                                             class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i> Edit Data</a>
                                                             <!-- tombol delete -->
                                                             <form action="<?=site_url('inventaris/'.$inventaris->id_ht)?>" method="post" onsubmit="return confirm('Data akan dihapus?')">
@@ -188,7 +183,7 @@
 
                                     $qrCode = new QrCode();
                                     $qrCode
-                                        ->setText('localhost:8080/inventaris/detail/'.$inventaris->id_ht)
+                                        ->setText('localhost:8080/inventaris/'.$inventaris->alias_ht)
                                         ->setSize(150)
                                         ->setPadding(10)
                                         ->setErrorCorrection('high')
@@ -205,11 +200,8 @@
                                 </div>
                                 <div class="card-footer text-center">
                                     <!-- tombol print -->
-                                    <a href="<?=site_url('inventaris/genqr/'.$inventaris->alias_ht) ?>" target="_blank"
-                                    class="btn btn-sm btn-outline-dark"><i class="fas fa-print"></i> Print</a>
-                                    <vr>
                                     <a href="<?=site_url('inventaris/downqr/'.$inventaris->alias_ht) ?>" target="_blank"
-                                    class="btn btn-sm btn-outline-dark"><i class="fas fa-download"></i> Download</a>
+                                    class="btn btn-sm btn-outline-dark"><i class="fas fa-print"></i> Download or Print</a>
                                 </div>
                         </div>
                     </div>

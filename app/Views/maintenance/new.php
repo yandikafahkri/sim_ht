@@ -89,13 +89,43 @@
                             <tr style="height: 50px;">
                                 <div class="form-group">
                                     <td width="200">
-                                    Foto Maintenance
+                                    Foto Maintenance 1
                                     </td>
 
                                     <td>:</td>
 
                                     <td width="1000">
-                                        <input type="file" class="form-control" id="foto_maint" name="foto_maint">                                    
+                                        <input type="file" class="form-control" id="foto_maint1" name="foto_maint1" required>                                    
+                                    </td>
+
+                                </div>
+                            </tr>
+                            
+                            <tr style="height: 50px;">
+                                <div class="form-group">
+                                    <td width="200">
+                                    Foto Maintenance 2
+                                    </td>
+
+                                    <td>:</td>
+
+                                    <td width="1000">
+                                        <input type="file" class="form-control" id="foto_maint2" name="foto_maint2"  required>                                    
+                                    </td>
+
+                                </div>
+                            </tr>
+                            
+                            <tr style="height: 50px;">
+                                <div class="form-group">
+                                    <td width="200">
+                                    Foto Maintenance 3
+                                    </td>
+
+                                    <td>:</td>
+
+                                    <td width="1000">
+                                        <input type="file" class="form-control" id="foto_maint3" name="foto_maint3"  required>                                    
                                     </td>
 
                                 </div>

@@ -30,7 +30,7 @@
                 </div>
                 <div class="card-body p-3">
                     <table class="table">
-                        <form action="<?=site_url('inventaris/'.$inventaris->id_ht)?>" method="post">
+                        <form action="<?=site_url('inventaris/'.$inventaris->alias_ht)?>" method="post">
                         <?= csrf_field() ?>   
                         <input type="hidden" name="_method" value="PUT">
 

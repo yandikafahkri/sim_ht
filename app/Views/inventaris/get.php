@@ -11,7 +11,7 @@
         <img alt="image" src="<?=base_url()?>/template/assets/img/ht.png" class="" width="40px">
         <h1>Inventaris Handy Talkie</h1>
         
-        <?php if(userLogin()->name_user=='administrator') : ?>
+        <?php if(userLogin()->info_user=='Administrator') : ?>
         <div class="section-header-button">
             <a href="<?=site_url('inventaris/add')?>" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i>  Tambah Data</a>
         </div>
@@ -26,11 +26,9 @@
 
         <div class="section-body text-dark">
 
-        <?php if(session()->getFlashdata('pesan')) : ?>
-                <div class="alert alert-success mb-3" role="alert">
-                <?= session()->getFlashdata('pesan'); ?>
-                </div>
-        <?php endif; ?>
+        <!-- Sweet Alert -->
+        <div class="swal" data-swal="<?= session()->getFlashdata('pesan'); ?>"> </div>
+
 
         <div class="card">
                 <div class="card-header">
@@ -39,13 +37,13 @@
                 <div class="card-body p-3">
                 <div class="table-responsive">
                     
-                    <table  id="example1" class="table table-bordered table-hover table-md dataTable dtr-inline p-2" role="grid" aria-describedby="example1_info">
-                        <tbody>
+                    <table  id="datatables" class="table table-bordered table-hover table-md dataTable dtr-inline p-2" role="grid" aria-describedby="example1_info">
+                        <thead>
                             <tr role="row" class="text-center bg-light">
                                 <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" 
                                 aria-label="No: activate to sort column descending">No.</th>
                                 <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" 
-                                 aria-label="Departement: activate to sort column descending">Departement</th>
+                                    aria-label="Departement: activate to sort column descending">Departement</th>
                                 <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" 
                                 aria-label="Lokasi: activate to sort column descending">Lokasi</th>
                                 <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" 
@@ -53,7 +51,8 @@
                                 <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" 
                                 aria-label="Action: activate to sort column descending">Detail</th>
                             </tr>
-
+                        </thead>    
+                        <tbody>
                             <?php $key=1; foreach ($data as $key => $value): ?>
 
                             <tr role="row" class="even odd">
@@ -63,13 +62,13 @@
                                 <td tabindex="0" class="sorting_1"><?=$value->alias_ht?></td>
                                 <td tabindex="0" class="text-center sorting_1" style="widht:10%">
                                     <!-- tombol detail -->
-                                    <a href="/inventaris/<?= $value->id_ht ?>"
+                                    <a href="/inventaris/<?= $value->alias_ht ?>"
                                     class="btn btn-sm text-success"><i class="fas fa-eye"></i> View</a>                
                                 </td>
                             </tr>
 
                             <?php endforeach; ?>
-                            </tbody>
+                        </tbody>
                     </table>
 
                 </div>
@@ -82,23 +81,6 @@
         </div>
     </section>
 
-    <!-- page script -->
-<!-- <script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true,
-      "autoWidth": false,
-    });
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-</script> -->
+
 
 <?= $this->endSection() ?>

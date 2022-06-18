@@ -68,9 +68,7 @@
                 
               </div>
             </div>
-            <div class="mt-5 text-muted text-center">
-              Don't have an account? <a href="auth-register.html">Create One</a>
-            </div>
+
             <footer class="simple-footer">
                 <div class="footer-left">
                 Copyright &copy; 2022 By Yandika Fahkri Ismananda

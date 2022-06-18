@@ -5,6 +5,7 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 class Model_inventaris extends Model
+
 {
     protected $table            = 'inventaris';
     protected $primaryKey       = 'id_ht';
@@ -18,12 +19,5 @@ class Model_inventaris extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
-
-    function getAll() {
-         $builder = $this->db->table('inventaris');
-         $builder->join('maintenance', 'maintenance.id_ht = inventaris.id_ht');
-         $query = $builder->get();
-         return $query->getResult();
-    } 
 
 }
