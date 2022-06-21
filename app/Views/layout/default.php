@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <?= $this->renderSection('title') ?>
+    
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?=base_url()?>/template/node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?=base_url()?>/template/node_modules/@fortawesome/fontawesome-free/css/all.min.css">
-  <!-- CSS Libraries -->
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?=base_url()?>/template/assets/css/style.css">
@@ -19,6 +19,10 @@
 
   <!-- sweetalert2 -->
   <link rel="stylesheet" href="<?=base_url()?>/template/sweetalert2/dist/sweetalert2.min.css">
+
+  <!-- select picker -->
+  <link rel="stylesheet" href="<?=base_url()?>/template/snapappointments/bootstrap-select/dist/css/bootstrap-select.min.css">
+
 </head>
 
 <body>
@@ -91,9 +95,9 @@
             <a href="<?=site_url('/')?>">SIM-HT</a>
           </div>
           
-            <ul class="sidebar-menu">
-                <?=$this->include('layout/menu.php') ?>
-            </ul>
+              <ul class="sidebar-menu">
+                  <?=$this->include('layout/menu.php') ?>
+              </ul>
             
             <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
               <a href="#" class="btn btn-primary btn-lg btn-block btn-icon-split">
@@ -118,15 +122,19 @@
         </div>
       </footer>
     </div>
-  </div>
-
-  <!-- General JS Scripts -->
+  </div>  
+   
+  <!-- Select Picker -->
+  <script src="<?=base_url()?>/template/node_modules/popper/dist/popper.min.js"></script>
   <script src="<?=base_url()?>/template/node_modules/jquery/dist/jquery.min.js"></script>
+  
+  <!-- General JS Scripts -->
   <script src="<?=base_url()?>/template/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="<?=base_url()?>/template/node_modules/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script>
-  <script src="<?=base_url()?>/template/node_modules/moment/min/moment.min.js"></script>
   <script src="<?=base_url()?>/template/assets/js/stisla.js"></script>
   <script src="<?=base_url()?>/template/sweetalert2/dist/sweetalert2.min.js"></script>
+  <script src="<?=base_url()?>/template/snapappointments/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+
 
   <!-- JS Libraies -->
 
@@ -137,12 +145,15 @@
   <!-- DataTable -->
   <script src="<?=base_url()?>/template/assets/dataTables/datatables.min.js"></script>
 
-    <!-- DataTables -->
-
   <script>
     $(document).ready( function () {
         $('#datatables').DataTable();
     } );
+  </script>
+
+
+  <script>
+    $('.selectpicker').selectpicker();
   </script>
 
 

@@ -22,11 +22,9 @@
 
         <div class="section-body text-dark">
 
-        <?php if(session()->getFlashdata('pesan')) : ?>
-                <div class="alert alert-success mb-3" role="alert">
-                <?= session()->getFlashdata('pesan'); ?>
-                </div>
-        <?php endif; ?>
+        <!-- Sweet Alert -->
+        <div class="swal" data-swal="<?= session()->getFlashdata('pesan'); ?>"> </div>
+
 
         <div class="card">
                 <div class="card-header">

@@ -24,6 +24,10 @@
 
         <div class="section-body">
 
+        <!-- Sweet Alert -->
+        <div class="swal" data-swal="<?= session()->getFlashdata('pesan'); ?>"> </div>
+
+
         <div class="card">
                 <div class="card-header">
                 <h4>Edit Data Maintenance <?= $maintenance->alias_ht ?></h4>
@@ -35,15 +39,15 @@
                         <input type="hidden" name="_method" value="PUT">
  
                         <tr style="height: 50px;">
-                                <div class="form-group">
-                                    <td width="150">
+                        <div class="form-group">
+                                    <td width="200">
                                     Nama Alias
                                     </td>
 
                                     <td width="15">:</td>
                                     
-                                    <td width="700">
-                                    <select class="form-control" name="alias_ht" placeholder="Pilih Nama Alias" required>
+                                    <td width="250">
+                                    <select class="selectpicker" data-live-search="true" name="alias_ht" placeholder="Pilih Nama Alias" value="<?= $maintenance->alias_ht ?>" required>
                                         <option value="alias_ht"></option>
                                         <?php foreach ($inventaris as $key => $value) : ?>
                                              <option value="<?=$value->alias_ht?>"><?=$value->alias_ht?></option>
@@ -51,29 +55,23 @@
                                     </select>
                                     </td>
 
-                                    <td>
-                                        <div class="form-control text-muted"><?= $maintenance->alias_ht ?></div>
+                                    <td width="" colspan="4">
+                                        <div class="text-muted">: <?= $maintenance->alias_ht ?></div>
                                     </td>
-
                                 </div>
                             </tr>
 
-                            <tr style="height: 50px;">
-                                <div class="form-group">
-                                    <td width="">
+                        <tr style="height: 50px;">
+                        <div class="form-group">
+                                    <td width="200">
                                     Tanggal Maintenance
                                     </td>
 
                                     <td>:</td>
 
-                                    <td width="">
+                                    <td width="800" colspan="5">
                                         <input class="form-control" type="date" name="tanggal_maint" value="<?= $maintenance->tanggal_maint ?>" required/>
                                     </td>
-
-                                    <td>
-                                        <div class="form-control text-muted"><?= $maintenance->tanggal_maint ?></div>
-                                    </td>
-
                                 </div>
                             </tr>
 
@@ -85,8 +83,8 @@
 
                                     <td>:</td>
 
-                                    <td width="">
-                                    <select class="form-control" name="kondisi_maint" placeholder="Pilih Nama Alias" required>
+                                    <td width="600" colspan="4">
+                                    <select class="form-control" name="kondisi_maint" placeholder="Pilih Nama Alias" value="<?= $maintenance->kondisi_maint ?>" required>
                                         <option value="Baik 100%">Baik 100%</option>
                                         <option value="Baik 75%">Baik 75%</option>
                                         <option value="Layak Pakai 50%">Layak Pakai 50%</option>
@@ -95,7 +93,7 @@
                                     </td>
 
                                     <td>
-                                        <div class="form-control text-muted"><?= $maintenance->kondisi_maint ?></div>
+                                        <div class="form-control text-muted">: <?= $maintenance->kondisi_maint ?></div>
                                     </td>
 
 
@@ -111,7 +109,7 @@
 
                                     <td>:</td>
 
-                                    <td width="">
+                                    <td width="" colspan="4">
                                         <input type="file" class="form-control" id="foto_maint1" name="foto_maint1">
                                         <?= $maintenance->foto_maint1 ?>                                    
                                     </td>
@@ -134,7 +132,7 @@
 
                                     <td>:</td>
 
-                                    <td width="">
+                                    <td width="" colspan="4">
                                         <input type="file" class="form-control" id="foto_maint2" name="foto_maint2">  
                                         <?= $maintenance->foto_maint2 ?>                                                                    
                                     </td>
@@ -157,7 +155,7 @@
 
                                     <td>:</td>
 
-                                    <td width="">
+                                    <td width="" colspan="4">
                                         <input type="file" class="form-control" id="foto_maint3" name="foto_maint3">  
                                         <?= $maintenance->foto_maint3 ?>                                                                    
                                     </td>

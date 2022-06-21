@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Jun 2022 pada 11.34
+-- Waktu pembuatan: 18 Jun 2022 pada 14.01
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.0.13
 
@@ -48,10 +48,15 @@ INSERT INTO `inventaris` (`id_ht`, `dep_ht`, `lokasi_ht`, `alias_ht`, `tipe_ht`,
 (4, 'Operasional', 'Container Crane (CC 06) RIG', 'RIG-CC06', 'M8628', '511TRFA620', 'Operator CC', 'Normal 100%'),
 (5, 'Operasional', 'Container Crane (CC 07) RIG', 'RIG-CC07', 'M8628', '511TRFA660', 'Operator CC', 'Normal 70%'),
 (7, 'Operasional', 'Container Crane (CC 09) RIG', 'RIG-CC09', 'M8628', '511TRFA611', 'Operator CC', 'Normal 70%'),
-(8, 'Operasional', 'RUBBER TYRED GANTRY SUMITOMO (RTG01) RIG', 'HT-RTG01', 'M8628', '511TRFA549', 'Operator RTG', 'Normal 70%'),
-(10, 'Operasional', 'RUBBER TYRED GANTRY SUMITOMO (RTG02) RIG', 'HT-RTG02', 'M8628', '511TRFA495', 'Operator RTG', 'Normal 100%'),
-(11, 'Operasional', 'RUBBER TYRED GANTRY SUMITOMO (RTG03) RIG', 'HT-RTG03', 'M8628', '511TRFA493', 'Operator RTG', 'Normal 100%'),
-(12, 'Operasional', 'RUBBER TYRED GANTRY SUMITOMO (RTG04) RIG', 'HT-RTG04', 'M8628', '511TRFA595', 'Operator RTG', 'Normal 70%');
+(8, 'Operasional', 'RUBBER TYRED GANTRY SUMITOMO (RTG01) RIG', 'RIG-RTG01', 'M8628', '511TRFA549', 'Operator RTG', 'Normal 100%'),
+(10, 'Operasional', 'RUBBER TYRED GANTRY SUMITOMO (RTG02) RIG', 'RIG-RTG02', 'M8628', '511TRFA495', 'Operator RTG', 'Normal 100%'),
+(11, 'Operasional', 'RUBBER TYRED GANTRY SUMITOMO (RTG03) RIG', 'RIG-RTG03', 'M8628', '511TRFA493', 'Operator RTG', 'Normal 100%'),
+(12, 'Operasional', 'RUBBER TYRED GANTRY SUMITOMO (RTG04) RIG', 'RIG-RTG04', 'M8628', '511TRFA595', 'Operator RTG', 'Normal 70%'),
+(14, 'Operasional', 'RUBBER TYRED GANTRY SUMITOMO (RTG05) RIG', 'RIG-RTG05', 'M8628', '511TRFA662', 'Operator RTG', 'Normal 70%'),
+(15, 'Operasional', 'RUBBER TYRED GANTRY SUMITOMO (RTG06) RIG', 'RIG-RTG06', 'M8628', '511TRFA663', 'Operator RTG', 'Normal 70%'),
+(16, 'Operasional', 'RUBBER TYRED GANTRY SUMITOMO (RTG07) RIG', 'RIG-RTG07', 'M8628', '511TRFA655', 'Operator RTG', 'Normal 100%'),
+(17, 'Operasional', 'RUBBER TYRED GANTRY SUMITOMO (RTG08) RIG', 'RIG-RTG08', 'M8628', '511TRFA639', 'Operator RTG', 'Normal 100%'),
+(18, 'Operasional', 'RUBBER TYRED GANTRY KALMAR (RTG18) RIG', 'RIG-RTG18', 'M8628', '511TRFA605', 'Operator RTG', 'Normal 100%');
 
 -- --------------------------------------------------------
 
@@ -77,7 +82,10 @@ CREATE TABLE `maintenance` (
 --
 
 INSERT INTO `maintenance` (`id_maint`, `alias_ht`, `tanggal_maint`, `kondisi_maint`, `foto_maint1`, `foto_maint2`, `foto_maint3`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'RIG-CC04', '2022-06-08', 'Baik 100%', 'TimePhoto_20210407_125537.jpg', 'TimePhoto_20210407_124925.jpg', 'TimePhoto_20210407_124437.jpg', '2022-06-16 15:38:37', '2022-06-16 15:38:37', '2022-06-16 15:38:37');
+(1, 'RIG-CC04', '2022-06-08', 'Baik 100%', 'TimePhoto_20210407_125537.jpg', 'TimePhoto_20210407_124925.jpg', 'TimePhoto_20210407_124438.jpg', '2022-06-16 15:38:37', '2022-06-16 15:38:37', '2022-06-16 15:38:37'),
+(2, 'RIG-CC05', '2022-06-17', 'Baik 100%', 'TimePhoto_20210407_130854.jpg', 'TimePhoto_20210407_130657.jpg', 'TimePhoto_20210407_162135.jpg', '2022-06-17 15:23:37', '2022-06-17 15:23:37', '2022-06-17 15:23:37'),
+(3, 'RIG-CC06', '2022-06-10', 'Baik 100%', 'TimePhoto_20210407_133942.jpg', 'TimePhoto_20210407_132350.jpg', 'TimePhoto_20210407_132327.jpg', '2022-06-18 11:51:02', '2022-06-18 11:51:02', '2022-06-18 11:51:02'),
+(4, 'RIG-CC07', '2022-06-08', 'Baik 100%', 'TimePhoto_20210407_153047.jpg', 'TimePhoto_20210407_134141.jpg', 'TimePhoto_20210407_152830.jpg', '2022-06-18 12:08:50', '2022-06-18 12:08:50', '2022-06-18 12:08:50');
 
 -- --------------------------------------------------------
 
@@ -100,7 +108,10 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id_user`, `name_user`, `email_user`, `password_user`, `info_user`) VALUES
 (1, 'Yandika Fahkri Ismanananda', 'yandika.ismananda@gmail.com', '$2a$12$P836Ta5RRJdnHscUDoG4aeFCaqP6wG1zI7Iow.7T/gsjX/uzWV0yW', 'Administrator'),
 (2, 'Teknisi', 'teknisi@gmail.com', '$2y$10$bQC.Jz0FEdJWaN7R26E5Y.2Kb.Jfs/gDv/Uau2cifgefxBr2eloRS', 'Teknisi'),
-(3, 'Agung Sulistyo', 'agung@gmail.com', '$2y$10$CbIgQKrBdz5Fm3WkuNBKKOy3qC8NTOEK1Cj8O27pvy060U0XQ5lCi', 'Admin Perusahaan');
+(3, 'Agung Sulistyo', 'agung@gmail.com', '$2y$10$CbIgQKrBdz5Fm3WkuNBKKOy3qC8NTOEK1Cj8O27pvy060U0XQ5lCi', 'Admin Perusahaan'),
+(4, 'Arifin', 'arifin@gmail.com', '$2y$10$z/D82GvklqUbPe82qP0aFOry21/6Pp7LfTLv4U2bXT5cbHniUNdx.', 'Teknisi'),
+(5, 'Mubarok', 'mubarok@gmail.com', '$2y$10$K6b05Czf7L86FFlLl2U1ruJt7XwnqHFPsCtCGUdwbObIe/5jGswUS', 'Teknisi'),
+(6, 'Bowo', 'bowo@gmail.com', '$2y$10$jBuo7S.mCJQ8YS8OYSDgpOKdnh1PU60d5p/CFYcB8LNT1yl/ftv02', '');
 
 --
 -- Indexes for dumped tables
@@ -132,19 +143,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `inventaris`
 --
 ALTER TABLE `inventaris`
-  MODIFY `id_ht` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_ht` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT untuk tabel `maintenance`
 --
 ALTER TABLE `maintenance`
-  MODIFY `id_maint` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_maint` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

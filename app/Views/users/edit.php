@@ -25,6 +25,10 @@
 
         <div class="section-body">
 
+        <!-- Sweet Alert -->
+        <div class="swal" data-swal="<?= session()->getFlashdata('pesan'); ?>"> </div>
+
+
         <div class="card">
                 <div class="card-header">
                 <h4>Edit Data Akun <?=$users->name_user?></h4>

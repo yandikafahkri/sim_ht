@@ -11,7 +11,8 @@
         "codeitnowin/barcode": "^3.0",
         "bacon/bacon-qr-code": "^2.0",
         "khanamiryan/qrcode-detector-decoder": "1.0.5.2",
-        "myth/auth": "^1.0"
+        "myth/auth": "^1.0",
+        "snapappointments/bootstrap-select": "^1.13"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",
