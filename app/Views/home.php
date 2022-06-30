@@ -104,7 +104,7 @@
                                         <td tabindex="0" class="text-center sorting_1" style="widht:10%">
                                             <!-- tombol detail -->
                                             <a href="/inventaris/<?= $value->id_ht ?>"
-                                            class="btn btn-sm text-success"><i class="fas fa-eye"></i> View</a>                
+                                            class="btn btn-sm text-success"><i class="fas fa-eye"></i> Lihat</a>                
                                         </td>
                                     </tr>
 

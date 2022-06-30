@@ -46,17 +46,8 @@
 
                                     <td width="15">:</td>
                                     
-                                    <td width="250">
-                                    <select class="selectpicker" data-live-search="true" name="alias_ht" placeholder="Pilih Nama Alias" value="<?= $maintenance->alias_ht ?>" required>
-                                        <option value="alias_ht"></option>
-                                        <?php foreach ($inventaris as $key => $value) : ?>
-                                             <option value="<?=$value->alias_ht?>"><?=$value->alias_ht?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                    </td>
-
-                                    <td width="" colspan="4">
-                                        <div class="text-muted">: <?= $maintenance->alias_ht ?></div>
+                                    <td width="250" colspan="5">
+                                        <input class="form-control" readonly data-toggle="tooltip" data-placement="top" title="Nama tidak bisa diubah!" type="text" name="alias_ht" placeholder="Pilih Nama Alias" value="<?= $maintenance->alias_ht ?>" required>
                                     </td>
                                 </div>
                             </tr>
@@ -83,20 +74,15 @@
 
                                     <td>:</td>
 
-                                    <td width="600" colspan="4">
-                                    <select class="form-control" name="kondisi_maint" placeholder="Pilih Nama Alias" value="<?= $maintenance->kondisi_maint ?>" required>
-                                        <option value="Baik 100%">Baik 100%</option>
+                                    <td width="600" colspan="5">
+                                    <select class="form-control" name="kondisi_maint" placeholder="Pilih Nama Alias" value="" required>
+                                    <option value="<?= $maintenance->kondisi_maint ?>" selected><?= $maintenance->kondisi_maint ?></option>
+                                    <option value="Baik 100%">Baik 100%</option>
                                         <option value="Baik 75%">Baik 75%</option>
-                                        <option value="Layak Pakai 50%">Layak Pakai 50%</option>
+                                        <option value="Layak Pakai 50%" >Layak Pakai 50%</option>
                                         <option value="Rusak">Rusak</option>
                                     </select>
                                     </td>
-
-                                    <td>
-                                        <div class="form-control text-muted">: <?= $maintenance->kondisi_maint ?></div>
-                                    </td>
-
-
                                 </div>
                             </tr>
 
@@ -110,7 +96,7 @@
                                     <td>:</td>
 
                                     <td width="" colspan="4">
-                                        <input type="file" class="form-control" id="foto_maint1" name="foto_maint1">
+                                        <input type="file" class="form-control" id="foto_maint1" name="foto_maint1" required>
                                         <?= $maintenance->foto_maint1 ?>                                    
                                     </td>
 
@@ -133,7 +119,7 @@
                                     <td>:</td>
 
                                     <td width="" colspan="4">
-                                        <input type="file" class="form-control" id="foto_maint2" name="foto_maint2">  
+                                        <input type="file" class="form-control" id="foto_maint2" name="foto_maint2" required>  
                                         <?= $maintenance->foto_maint2 ?>                                                                    
                                     </td>
 
@@ -156,7 +142,7 @@
                                     <td>:</td>
 
                                     <td width="" colspan="4">
-                                        <input type="file" class="form-control" id="foto_maint3" name="foto_maint3">  
+                                        <input type="file" class="form-control" id="foto_maint3" name="foto_maint3" required>  
                                         <?= $maintenance->foto_maint3 ?>                                                                    
                                     </td>
 
@@ -166,7 +152,21 @@
                                         </div>  
                                     </td>
 
+                                    </div>
+                            </tr>
 
+                                                        
+                            <tr style="height: 50px;">
+                                <div class="form-group">
+                                    <td width="200">
+                                    Catatan Maintenance
+                                    </td>
+
+                                    <td>:</td>
+
+                                    <td width="1000" colspan=4>
+                                        <input class="form-control" type="text" value="<?=$maintenance->ket_maint?>" name="ket_ht" placeholder="Keterangan (isi (-) jika tidak ada keterangan)" required/>
+                                    </td>
                                 </div>
                             </tr>
 
@@ -190,6 +190,12 @@
             </div>
 
         </div>
+        <script>
+            $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+            })
+        </script>
+
     </section>
 
 <?= $this->endSection() ?>

@@ -129,6 +129,17 @@
                                                     </td>
                                                 </div>
                                             </tr>
+                                            <tr style="height: 50px;" >
+                                                <div class="form-group">
+                                                    <td colspan=3 width="500">
+                                                    Catatan Maintenance
+                                                    </td>
+
+                                                    <td colspan=9 width="">
+                                                    <?= $maintenance->ket_maint ?>
+                                                    </td>
+                                                </div>
+                                            </tr>
                                             <tr style="height: 50px;">
                                                 <td colspan=3>
                                                     <?php if(userLogin()->info_user=='Administrator') : ?>        

@@ -77,14 +77,13 @@
                                     <td>:</td>
 
                                     <td width="1000">
-                                        <input type="password" class="form-control"  value="<?=$users->password_user?>" id="password_user" name="password_user">                                    
+                                        <input type="password" class="form-control" value="<?=$users->password_user?>" id="password_user" name="password_user">                                    
                                     </td>
 
                                 </div>
                             </tr>
 
 
-                            <?php if(userLogin()->info_user=='Administrator') : ?>        
                             <tr style="height: 50px;">
                                 <div class="form-group">
                                     <td width="200">
@@ -94,12 +93,11 @@
                                     <td>:</td>
 
                                     <td width="1000">
-                                        <input type="text" class="form-control" value="<?=$users->info_user?>" id="info_user" name="info_user">                                    
+                                        <input type="text" class="form-control" readonly value="<?=$users->info_user?>" id="info_user" name="info_user">                                    
                                     </td>
 
                                 </div>
                             </tr>
-                            <?php endif ;?>
 
                             
                             <tr style="height: 50px;">

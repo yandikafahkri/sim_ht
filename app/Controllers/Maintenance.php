@@ -22,21 +22,29 @@ class Maintenance extends ResourceController
         $this->maintenance = new ModelMaint();
     }
 
-    public function index()
+    public function index($id = null)
     {
+        $foto = $this->db->table('maintenance')->getWhere(['id_maint' => $id]);
+        
         $data = [
             'title' => 'Maintenance',
-            'maintenance' => $this->maintenance->findAll()
+            'maintenance' => $this->maintenance->findAll(),
+            'foto' => $foto->getRow()
+
         ] ;
 
         return view('maintenance/get', $data);
     }
 
     public function new()
-    {
+    {        
+        //select data inven yg data nya belum ada di maintenance
+        $query = $this->db->query('SELECT alias_ht FROM inventaris WHERE alias_ht not in (SELECT alias_ht FROM maintenance)');
+
         $data = [
             'title' => "Tambah Data Maintenance",
-            'inventaris' => $this->inventaris->findAll()
+            'inventaris' => $query->getResult(),
+            'maintenance' => $this->maintenance->findAll()
         ];
 
         return view('maintenance/new', $data);
@@ -74,14 +82,14 @@ class Maintenance extends ResourceController
         $namaFoto2 = $foto_maint2->getName('foto_maint2');
         $namaFoto3 = $foto_maint3->getName('foto_maint3');
 
-
         $this->maintenance->save([
             'alias_ht' => $this->request->getVar('alias_ht'),
             'tanggal_maint' => $this->request->getVar('tanggal_maint'),
             'kondisi_maint' => $this->request->getVar('kondisi_maint'),
             'foto_maint1' =>  $namaFoto1,
             'foto_maint2' => $namaFoto2,
-            'foto_maint3' => $namaFoto3
+            'foto_maint3' => $namaFoto3,
+            'ket_maint' => $this->request->getVar('ket_maint')
         ]);
 
         session()->setFlashdata('pesan', 'Data berhasil ditambahkan!');
@@ -135,10 +143,11 @@ class Maintenance extends ResourceController
             'kondisi_maint' => $this->request->getVar('kondisi_maint'),
             'foto_maint1' =>  $namaFoto1,
             'foto_maint2' => $namaFoto2,
-            'foto_maint3' => $namaFoto3
+            'foto_maint3' => $namaFoto3,
+            'ket_maint' => $this->request->getVar('ket_maint')
         ]);
 
-        session()->setFlashdata('pesan', 'Data berhasil diupadate!');
+        session()->setFlashdata('pesan', 'Data berhasil diperbarui!');
 
         return redirect()->to(site_url('maintenance'));  
 
@@ -156,6 +165,28 @@ class Maintenance extends ResourceController
                 ];
 
                 return view('maintenance/cetak', $data);
+
+        } else {
+                throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+            }
+        } else {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+
+    }
+    
+    public function foto($id)
+    {
+        if($id != null) {
+            $query = $this->db->table('maintenance')->getWhere(['id_maint' => $id]);
+            if ($query->resultID->num_rows > 0) {
+                $data = [
+                    'title' => "Foto  Maintenance",
+                    'maintenance' => $query->getRow(),
+                    'inventaris' => $this->inventaris->findAll()
+                ];
+
+                return view('maintenance/foto', $data);
 
         } else {
                 throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
@@ -190,7 +221,6 @@ class Maintenance extends ResourceController
 
     public function delete($id = null) 
     {
-
         $this->db->table('maintenance')->where(['id_maint' => $id])->delete();
 
         session()->setFlashdata('pesan', 'Data berhasil dihapus!');

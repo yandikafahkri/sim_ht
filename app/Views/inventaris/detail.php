@@ -59,8 +59,18 @@
 
                                                     <td width="15">:</td>
                                                     
-                                                    <td colspan=4 width="1000" >
+                                                    <td width="1000" >
                                                         <?= $inventaris->dep_ht ?>
+                                                    </td>
+
+                                                    <td width="200">
+                                                    Kondisi HT
+                                                    </td>
+
+                                                    <td>:</td>
+
+                                                    <td width="1000">
+                                                        <?= $inventaris->kondisi_ht ?>
                                                     </td>
                                                 </div>
                                             </tr>
@@ -73,23 +83,8 @@
 
                                                     <td>:</td>
 
-                                                    <td colspan=4 width="1000">
-                                                        <?= $inventaris->lokasi_ht ?>
-                                                    </td>
-                                                </div>
-                                            </tr>
-
-                                            
-                                            <tr style="height: 50px;">
-                                                <div class="form-group">
-                                                    <td width="200">
-                                                    Nama Alias
-                                                    </td>
-
-                                                    <td>:</td>
-
                                                     <td width="1000">
-                                                        <?= $inventaris->alias_ht ?>
+                                                        <?= $inventaris->lokasi_ht ?>
                                                     </td>
 
                                                     <td width="200">
@@ -109,13 +104,13 @@
                                             <tr style="height: 50px;">
                                                 <div class="form-group">
                                                     <td width="200">
-                                                    Tipe Radio HT
+                                                    Nama Alias
                                                     </td>
 
                                                     <td>:</td>
 
                                                     <td width="1000">
-                                                        <?= $inventaris->tipe_ht ?>
+                                                        <?= $inventaris->alias_ht ?>
                                                     </td>
 
                                                     <td width="200">
@@ -127,6 +122,24 @@
                                                     <td width="1000">
                                                         <?= $inventaris->pj_ht ?>
                                                     </td>
+
+
+                                                </div>
+                                            </tr>
+
+                                            
+                                            <tr style="height: 50px;">
+                                                <div class="form-group">
+                                                    <td width="200">
+                                                    Tipe Radio HT
+                                                    </td>
+
+                                                    <td>:</td>
+
+                                                    <td width="1000">
+                                                        <?= $inventaris->tipe_ht ?>
+                                                    </td>
+
 
                                                 </div>
                                             </tr>

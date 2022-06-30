@@ -129,6 +129,24 @@
 
                                 </div>
                             </tr>       
+
+                            <tr style="height: 50px;">
+                                <div class="form-group">
+                                    <td width="200">
+                                    Kondisi HT
+                                    </td>
+
+                                    <td>:</td>
+
+                                    <td width="1000">
+                                    <select class="form-control" name="kondisi_ht" placeholder="Status Perangkat">
+                                        <option value="Normal">Normal</option>
+                                        <option value="Rusak">Rusak</option>
+                                    </select>                                    
+                                    </td>
+
+                                </div>
+                            </tr>       
                             
                             
                             <tr style="height: 50px;">
@@ -138,13 +156,8 @@
                                     </td>
 
                                     <td>:</td>
-
                                     <td width="1000">
-                                    <select class="form-control" name="ket_ht" placeholder="Status Perangkat">
-                                        <option value="Normal 100%">Normal 100%</option>
-                                        <option value="Normal 70%">Normal 70%</option>
-                                        <option value="Rusak">Rusak</option>
-                                    </select>
+                                        <input class="form-control" type="text" name="ket_ht" placeholder="Keterangan (isi (-) jika tidak ada keterangan)" required/>
                                     </td>
 
                                 </div>
