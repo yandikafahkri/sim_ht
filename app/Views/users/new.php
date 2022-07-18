@@ -79,13 +79,16 @@
                             <tr style="height: 50px;">
                                 <div class="form-group">
                                     <td width="200">
-                                    Info User
+                                    Role User
                                     </td>
 
                                     <td>:</td>
 
                                     <td width="1000">
-                                        <input type="text" class="form-control" id="info_user" name="info_user">                                    
+                                    <select type="text" class="form-control" id="info_user" name="info_user" placeholder="Pilih Role" required>
+                                        <option value="Administrator">Administrator</option>
+                                        <option value="Teknisi">Teknisi</option>
+                                    </select>                                        
                                     </td>
 
                                 </div>

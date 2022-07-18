@@ -87,7 +87,7 @@
                             <tr style="height: 50px;">
                                 <div class="form-group">
                                     <td width="200">
-                                    Info User
+                                    Role User
                                     </td>
 
                                     <td>:</td>
